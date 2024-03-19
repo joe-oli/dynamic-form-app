@@ -1,0 +1,44 @@
+<div class="form-group field field-string">
+    <div>
+        <label>
+            <span style="color: red; font-weight: bold;">Favorite Color</span>
+        </label>
+        <select>
+            <option value="Red">Red</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Orange">Orange</option>
+            <option value="Purple">Purple</option>
+        </select></div>
+</div>
+
+
+<!--
+{
+    "type": "string",
+    "enum": [
+        "Red",
+        "Yellow",
+        "Orange",
+        "Purple"
+    ],
+    "title": "<span style='color: red; font-weight: bold;'>Favorite Color</span>"
+}
+
+Passed into the Custom.tsx component:
+--
+name: 'favouriteColor',
+schema:
+{
+    "type": "string",
+    "enum": [
+        "Red",
+        "Yellow",
+        "Orange",
+        "Purple"
+    ],
+    "title": "<span style='color: red; font-weight: bold;'>Favorite Color</span>"
+},
+uiSchema:
+{}
+
+-->
