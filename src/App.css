@@ -17,6 +17,10 @@
   background-color: #fff;
   padding: 20px;
   color: #282c34;
+
+  text-align: left; /* Add this line */
+  margin: 0 20px; /* Adjust the value as needed */
+  background-color: #fff;
 }
 
 .App a {
@@ -26,4 +30,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+
+/* for styling RJSF */
+.form-group.field.field-string label,
+.form-group.field.field-string select {
+  display: block;
 }
