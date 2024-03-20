@@ -1,8 +1,9 @@
 // CustomStaticText.tsx
 import React from 'react';
+import { FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
 
-interface CustomStaticTextProps {
-  id: string;
+interface CustomStaticTextProps extends WidgetProps<any> {
+  // id: string;
   schema: {
     default: string;
   };
