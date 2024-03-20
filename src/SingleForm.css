@@ -29,3 +29,9 @@
 .field-string .field-radio-group .radio input[type="radio"] {
     margin-right: 10px;
 }
+
+
+/* 6. individual checkbox */
+.field-boolean .checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
