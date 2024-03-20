@@ -1,0 +1,31 @@
+/* 1) a dashed red border appears around the whole block */
+.panel.panel-danger.errors {
+    border: 2px dashed red;
+    padding:5px;
+
+}
+
+/* 2) The word "Errors" appears in bold red */
+.panel.panel-danger.errors .panel-heading .panel-title {
+    color: red;
+    font-weight: bold;
+}
+
+/* 3) each individual error i.e. the list items inside ul tag are in normal red */
+.panel.panel-danger.errors .list-group .list-group-item.text-danger {
+    color: white;
+    font-weight: normal;
+    background-color: lightblue;
+}
+
+
+/* 4) checkbox spacing from label */
+.field-array .checkboxes .checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+/* 5) radiobutton spacing from label */
+.field-string .field-radio-group .radio input[type="radio"] {
+    margin-right: 10px;
+}
