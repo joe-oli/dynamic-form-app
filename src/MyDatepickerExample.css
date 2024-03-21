@@ -1,0 +1,88 @@
+/* MyDatepickerExample.css */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /*less spacing */
+    max-width: 500px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-input,
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    width: 100%;
+  }
+  
+  .form-input,
+  .datepicker-custom {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: steelblue;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Customizing the DatePicker to have an icon */
+  .datepicker-icon-container {
+    display:flex;
+    align-items: center; /* Align items vertically */
+  }
+ 
+  
+  .datepicker-icon {
+    /* position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; */
+    margin-left: 8px; /* Space between the input and the icon */
+    cursor: pointer; /* Optional: if the icon is interactive */
+  }
+  
+
+  text-success {
+    color:green;
+  }
+  
+  .text-error {
+    color:red;
+  }
+
+
+
+  .datepicker-icon-container {
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+    max-width: 500px; /* Or any maximum width based on your layout */
+  }
+  
+  .react-datepicker-wrapper {
+    flex-grow: 1; /* Allow the wrapper to grow and fill the space */
+  }
+  
+  .datepicker-icon {
+    flex-grow: 0; /* Prevent the icon from growing */
+    margin-left: 8px; /* Space between the input and the icon */
+  }
+
+  .react-datepicker-wrapper, .datepicker-custom {
+    max-width: 200px; /* Adjust this value based on your desired input width */
+  }
+
+  
