@@ -1,0 +1,32 @@
+{
+    "previousEMDGGrantYES": {
+      "ui:widget": "textarea"
+    },
+    "previousApplicationsNotes": {
+      "ui:widget": "textarea"
+    },
+   "overallComments": {
+      "ui:widget": "textarea"
+    },
+    "staticText1": {
+      "ui:widget": "CustomStaticText",
+      "ui:options": {
+        "label": false
+      }
+    },
+    "staticText2": {
+      "ui:widget": "CustomStaticText",
+      "ui:options": {
+        "label": false
+      }
+    },
+    "singleSelectDropdown": {
+      "ui:field": "CustomSelectField"
+    },
+    "checkboxGroup": {
+      "ui:widget": "checkboxes"
+    },
+    "radioButtonGroup": {
+      "ui:widget": "radio"
+    }
+  }
