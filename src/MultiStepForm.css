@@ -1,0 +1,35 @@
+/* make the action buttons fixed in the right/middle */
+.MultiStepForm {
+    display: flex;
+    height: calc(100vh - 100px);
+    border: red dashed 2px;
+  }
+  
+  .MultiStepForm .form-container {
+    width: 80%; /* Adjust as needed */
+    overflow-y: auto;
+    border: hotpink dashed 1px;
+  }
+
+
+  
+  .MultiStepForm .action-buttons {
+    width: calc(20% - 60px); /* Subtract the total margin from the width */
+
+
+    position: fixed;
+    right: 0;
+    margin: 0 60px;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: steelblue dashed 1px;
+    
+    /* Add your button styles here */
+    display: flex;
+    flex-direction: column; /* This will stack the buttons vertically */
+    align-items: flex-start; /* This will center the buttons horizontally */
+    gap: 20px; /*This will add some space between the buttons */
+  }
+  
