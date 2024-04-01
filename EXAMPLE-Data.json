@@ -1,0 +1,48 @@
+{
+    "dummyTextField": {
+        "value": "Deprecated",
+        "notes": "extra notes"
+    },
+    "websiteVerified": {
+        "value": "Yes"
+    },
+    "equifaxSearch": {
+        "value": "Yes"
+    },
+    "attachedDocuments": {
+        "value": true
+    },
+    "vendorNumberSAP": {
+        "value": "ABCDEFG-ABCDEFG"
+    },
+    "australianBankProvided": {
+        "value": "Yes"
+    },
+    "staticText1": "<div style='font-size:20px;color:purple'>Grant History</div>",
+    "grantsRecordCheckbox": {
+        "value": true
+    },
+    "staticText2": "<div style='font-size:20px;color:purple'>Organisational Restructuring</div>",
+    "previousEMDGGrant": {
+        "value": "Yes"
+    },
+    "previousEMDGGrantYES": "Question 8.1 answer",
+    "grantAgreementKeyDetailsCheckbox": {
+        "value": true
+    },
+    "previousApplicationsNotes": "Question 10 Answer",
+    "previousApplicationsNotesCheckbox": {
+        "value": true
+    },
+    "overallComments": "Overall comments",
+    "singleSelectDropdown": "Orange",
+    "multiSelectDropdown": [
+        "apples",
+        "oranges"
+    ],
+    "checkboxGroup": [
+        "Option 1",
+        "Option 3"
+    ],
+    "radioButtonGroup": "Option 2"
+}

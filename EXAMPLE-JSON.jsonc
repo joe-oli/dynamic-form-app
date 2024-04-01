@@ -1,0 +1,240 @@
+{
+    "title": "User Information",
+    "type": "object",
+    "required": [
+        "firstName",
+        "lastName"
+    ],
+    "properties": {
+        "firstName": {
+            "title": "First Name",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "pattern": "^[A-Za-z'-]*$"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "websiteVerified": {
+            "title": "Q2. The Applicant's website has been verified",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "Yes",
+                        "NA"
+                    ]
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "equifaxSearch": {
+            "title": "Q3. If this is the applicant's first application, have you uploaded the comprehensive (current and historical) Equifax search?",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "Yes",
+                        "NA"
+                    ]
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "attachedDocuments": {
+            //FOR TITLE, DO NOT use array, this is just for readability, it should be just html in one string to be valid json. 
+            "title": [
+                "<div>",
+                "Q4. The applicant uploaded the required documents during the application process<br />",
+                "<ul><li>Application form PDF</li>",
+                "<li>Balance Sheet</li>",
+                "<li>Profit and Loss Statement</li>",
+                "</ul>",
+                "</div>"
+            ],
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "boolean",
+                    "const": true //must be checked to be valid, else show error
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "vendorNumberSAP": {
+            "title": "Q5. What is the applicant's SAP vendor number",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 20,
+                    "pattern": "^[A-Za-z'-]*$"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "australianBankProvided": {
+            "title": "Q6. Has the applicant's provided bank account details for an Australian Banking institudion?",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "staticText1": {
+            "type": "string",
+            "default": "<div style='font-size:20px;color:purple'>Grant History</div>"
+        },
+        "grantsRecordCheckbox": {
+            //FOR TITLE, DO NOT use array, this is just for readability, it should be just html in one string to be valid json. 
+            "title": [
+                "<div>",
+                "<p>Q7. The record of grants received by the applicant is correct (number of grants and amounts paid since 1 July 1999) and consistent with the CMS</ p>",
+                "<p>If the number and/or amount of grants is incorrect, please amend accordingly and refresh this checklist</p>",
+                "<p>Note - this question is separate from the organisational</p>",
+                "</div>"
+            ],
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "boolean",
+                    "const": true //must be checked to be valid, else show error
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "staticText2": {
+            "type": "string",
+            "default": "<div style='font-size:20px;color:purple'>Organisational Restructuring</div>"
+        },
+        "previousEMDGGrant": {
+            "title": "Q8. DId basic preliminary searches on the applicant's website (including the 'about us' section), CMD (e.g. applicant's name, applicant's address, associates, directors etc) and any other information reveal any possible issues that the applicant is in substance conducting the same business that a previous business that has received EMDG?",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        //textarea or multiline text input
+        "previousEMDGGrantYES": {
+            "title": "Q8.1 If yes, please provide notes to consider during the assessment.*",
+            "type": "string"
+        },
+        "grantAgreementKeyDetailsCheckbox": {
+            //FOR TITLE, DO NOT use array, this is just for readability, it should be just html in one string to be valid json. 
+            "title" : "Q9. The key details for the generation of the grant agreement are correct",
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "boolean",
+                    "const": true //must be checked to be valid, else show error
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]
+        },
+        "previousApplicationsNotes": {
+            "title": "Q10. Enter previous application notes.*",
+            "type": "string"
+        },
+        "previousApplicationsNotesCheckbox": {
+            //FOR TITLE, DO NOT use array, this is just for readability, it should be just html in one string to be valid json. 
+            "title" : [
+                "<div>",
+                    "<p>Q10.1 Have relevant notes from previous applications been entered into the field above?</p>",
+                    "<p>Note - this question will require you to check the EMDG reimbursement scheme CMS database, previous round timelines, assessor and approver notes</p>",
+                "</div>"
+            ],
+            "type": "object",
+            "instruction_link": "https://example.com",
+            "properties": {
+                "value": {
+                    "type": "boolean",
+                    "const": true //must be checked to be valid, else show error
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ]       
+        },
+        "overallComments": {
+            "title": "Q11. Please enter any other comments you would like to make regarding this application or applicant for the assessor to consider",
+            "type": "string"
+        }
+    }
+}
