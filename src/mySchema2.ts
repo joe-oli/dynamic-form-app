@@ -1,4 +1,4 @@
-import {RJSFSchema} from '@rjsf/utils'
+import { RJSFSchema } from '@rjsf/utils'
 import { UiSchema } from '@rjsf/utils'
 // import  {JSONSchema7}  from 'json-schema';
 

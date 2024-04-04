@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import Form from '@rjsf/core'
+import React, { FormEvent, useState, useRef } from 'react';
+// import Form from '@rjsf/core'
+import Form, { IChangeEvent, FormProps } from '@rjsf/core';
+
 
 //import { schema, uiSchema } from './mySchema2'; //it will actually import mySchema.js (NOT .ts)
 //above line moved up to parent App.tsx;
@@ -29,7 +31,7 @@ const WIDGET_MAP = {
   // Add more components as needed
 };
 const FIELD_MAP = {
-  CustomSelectField: CustomSelectField ,
+  CustomSelectField: CustomSelectField,
   // Add more components as needed
 };
 
@@ -56,9 +58,15 @@ const SingleForm: React.FC<SingleFormProps> = ({ schema, uiSchema }) => {
     };
   */
 
+  //manually maintain form Data, so it can be manually saved (without validation)
+  const [formData, setFormData] = useState<any>({});
 
-  const customValidator =  (formData: any, errors: any, uiSchema : any) => {
-    
+  // Create a ref for the form (manual submission)
+  const formRef = useRef<Form<any>>(null);
+
+
+  const customValidator = (formData: any, errors: any, uiSchema: any) => {
+
     console.log('formData:', formData)
     console.log('errors:', errors)
     console.log('uiSchema:', uiSchema)
@@ -92,19 +100,41 @@ const SingleForm: React.FC<SingleFormProps> = ({ schema, uiSchema }) => {
   or
   const { formData } = form;
   */
+
+  // const handleChange = ({ formData }) => setFormData(formData);
+  const handleChange = (e: IChangeEvent<any>) => setFormData(e.formData);
+
+  const handleSave = () => {
+    // Save the form data
+    console.log("Saving form data:", formData);
+  };
+
+
   const handleSubmit = (form: any, e: React.FormEvent<HTMLFormElement>) => {
     // Any last minute custom validation...
-    const {formData} = form; //destructure.
+    const { formData } = form; //destructure.
     if (formData.age && formData.age < 18) {
       console.error("Age must be 18 or older");
       e.preventDefault(); // Prevent form submission if needed
       return;
     }
-  
+
     // submit, etc
     alert("TODO: Ajax call to Submit...\n\n" + JSON.stringify(formData));
   };
 
+
+  const handleSubmit2 = (data: IChangeEvent<any>, e: FormEvent<HTMLFormElement>) => {
+    // The form is valid, so you can save the data
+    console.log("Validating and saving form data:", data.formData);
+  };
+
+
+
+  const handleValidateAndSave = () => {
+    // Trigger form submission
+    formRef.current?.submit();
+  };
 
   return (
     <div>
@@ -112,12 +142,17 @@ const SingleForm: React.FC<SingleFormProps> = ({ schema, uiSchema }) => {
       <h1>Single Form Page</h1>
 
 
-      {/*  */}
-		  <Form schema={schema} uiSchema={uiSchema} 
+      {/* Customised Form, with manual 1) Save, 2) Validate+Save buttons */}
+      <Form schema={schema} uiSchema={uiSchema}
         widgets={WIDGET_MAP} fields={FIELD_MAP}
         validator={AjvValidator} customValidate={customValidator} noHtml5Validate
-        onSubmit={handleSubmit} 
-        />
+        onChange={handleChange} onSubmit={handleSubmit2}
+        ref={formRef}
+        className="form-with-hidden-submit"
+      />
+
+      <button onClick={handleSave}>Save</button>
+      <button onClick={handleValidateAndSave}>Validate + Save</button>
     </div>
   );
 };

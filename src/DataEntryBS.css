@@ -1,0 +1,261 @@
+/* :root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #ececec;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #00698f;
+    --austrade: #f25f23;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  } */
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
+    display: block;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+  }
+  
+  #containerChecklist {
+    display: flex;
+    height: calc(100vh - 100px);
+    border: red dashed 2px;
+  }
+
+
+  .container,
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .crm-styles {
+    font-size: 1rem;
+    color: #333333;
+    font-family: SegoeUI, Segoe UI;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  /* .vh-100 {
+    height: 100vh !important;
+  } */
+  
+  .col-md-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  .col-md-3,
+  .col-md-9 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .pl-5,
+  .px-5 {
+    padding-left: 3rem !important;
+  }
+  
+  .pr-5,
+  .px-5 {
+    padding-right: 3rem !important;
+  }
+  
+  .form-item {
+    margin-top: 1rem;
+  }
+  .form-item .au-control-input--block {
+    margin-top: 0.5rem !important;
+  }
+  .form-item-preview span {
+    font-weight: bold;
+  }
+  .form-item-preview .form-value:empty:after {
+    content: "--";
+  }
+  .form-error {
+    color: #f44336;
+  }
+  .form-section {
+    padding: 1rem;
+    background-color: whitesmoke;
+  }
+  .form-file {
+    border: 3px dashed gray;
+    padding: 2.5rem 1rem 2.5rem;
+    text-align: center;
+  }
+  .form-progress {
+    padding: 2.5rem 1rem 2.5rem;
+  }
+  .form-file.form-file-valid {
+    border-color: #0b996c;
+  }
+  .form-file.form-file-invalid {
+    border-color: #d60000;
+  }
+  .form-help {
+    color: #00698f;
+  }
+  
+  .form-label {
+    margin-bottom: 0px;
+  }
+  
+  @media (min-width: 768px) {
+    .aus-formnav {
+      padding-top: 80px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    @supports (position: sticky) {
+      .aus-formnav {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+      }
+    }
+    ul.aus-formnav-actions {
+      padding: 0rem 1.5rem 1rem 1.5rem;
+      border: 1px solid #cfcdcc;
+      font-size: 1rem;
+    }
+    ul.aus-org-name {
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  
+  .list-unstyled,
+  ul.aus-formnav-actions,
+  ul.aus-org-name,
+  ul.aus-formnav-todo {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .media,
+  ul.aus-formnav-actions li {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  ul.aus-formnav-actions li {
+    margin-top: 0.5rem;
+    border-bottom: 1px solid #cfcdcc;
+    padding-bottom: 0.5rem;
+  }
+  
+  ul.aus-formnav-actions {
+    padding: 0rem 1.5rem 1rem 1.5rem;
+    border: 1px solid #cfcdcc;
+    font-size: 1rem;
+  }
+  
+  .right-side-bar a {
+    color: #444444;
+  }
+  
+  .media-body {
+    flex: 1;
+  }
+  
+  .ml-1,
+  .mx-1 {
+    margin-left: 0.25rem !important;
+  }
+  
+
+  /* make buttons like links */
+  .right-side-bar
+  button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.right-side-bar
+button:hover {
+    text-decoration: underline;
+}

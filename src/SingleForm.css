@@ -35,3 +35,8 @@
 .field-boolean .checkbox input[type="checkbox"] {
     margin-right: 10px;
 }
+
+
+.form-with-hidden-submit button[type="submit"] {
+    display: none;
+  }
