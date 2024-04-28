@@ -10,12 +10,10 @@ import SchemaEditor from './SchemaEditor';
 
 //TODO: later these are loaded as ajax calls.
 import { schema as initialSchema, uiSchema as initialUiSchema } from './mySchema2';
-import { schema3 as initialSchema3, uiSchema3 as initialUiSchema3 } from './mySchema3';
+import { schema3 as initialSchema3, uiSchema3 as initialUiSchema3 } from './mySchemaTEST';
 
 import 'bootstrap/dist/css/bootstrap.min.css' //either in here, or 1 level above in index.tsx
 import './App.css';
-
-
 
 const App: React.FC = () => {
 

@@ -71,7 +71,7 @@ html {
   }
   
   #containerChecklist {
-    display: flex;
+    /* display: flex; */
     height: calc(100vh - 100px);
     border: red dashed 2px;
   }
@@ -96,17 +96,23 @@ html {
     font-family: SegoeUI, Segoe UI;
   }
   
+
   .row {
     display: flex;
+    /* flex-direction: column; Stack the children vertically; NO, instruction_link, notes should remain horizontal */
     flex-wrap: wrap;
+    height: 100%; /* Take up all available space */
+    overflow: auto; /* Add scrollbar if necessary */
     margin-right: -15px;
     margin-left: -15px;
   }
+  
   
   /* .vh-100 {
     height: 100vh !important;
   } */
   
+/* ORIGINAL
   .col-md-9 {
     flex: 0 0 75%;
     max-width: 75%;
@@ -125,6 +131,30 @@ html {
     padding-right: 15px;
     padding-left: 15px;
   }
+  */
+
+
+/* REVISED by Copilot */
+.col-md-9 {
+  flex: 0 0 75%; /* Keep this */
+  max-width: 75%;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-md-3 {
+  flex: 0 0 25%; /* Keep this */
+  max-width: 25%;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+
   
   .pl-5,
   .px-5 {
@@ -139,6 +169,12 @@ html {
   .form-item {
     margin-top: 1rem;
   }
+
+  /* field error msg */
+  .form-item .error-message {
+    color: red;
+  }
+
   .form-item .au-control-input--block {
     margin-top: 0.5rem !important;
   }

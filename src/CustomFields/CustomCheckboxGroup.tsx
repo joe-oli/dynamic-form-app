@@ -16,14 +16,26 @@ const CustomCheckboxGroup: React.FC<FieldProps<CustomCheckboxGroupData>> = (prop
 
     const formData = props.formData || {};
     const { onChange } = props;
+    const { errorSchema, required } = props;  //err handling
+    console.error('errorSchema:', errorSchema)
+    console.warn('required:', required)
 
     //const valueSchema = props.schema.properties?.value.items as { type: string; enum?: string[] } | undefined;
     //see DropdownMulti, same issue.
     const valueSchema = (props.schema.properties?.value as any)?.items as { type: string; enum?: string[] } | undefined;
+    // Extract any errors for the 'value' property
+    const valueErrors = errorSchema && errorSchema.value && errorSchema.value.__errors;
+    // Check if 'notes' is in the schema
+    const notesInSchema = props.schema.properties && 'notes' in props.schema.properties;
 
+    console.error('valueErrors:', valueErrors)
     return (
         <div className="form-item">
-            <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
+            {/* <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} /> */}
+            <label className="form-label">
+                <span dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
+                {required && <span> *</span>}
+            </label>
 
             <div className="row mt-2">
                 <div className="col-md-5">
@@ -42,24 +54,38 @@ const CustomCheckboxGroup: React.FC<FieldProps<CustomCheckboxGroupData>> = (prop
                                     }
                                     onChange({ ...formData, value: newValue });
                                 }}
+                                style={{ marginRight: '5px' }}
                             />
                             <label htmlFor={`${props.idSchema.$id}_${index}`}>{option}</label>
                         </div>
                     ))}
+
+                    {valueErrors?.map((error, i) => (
+                        <div key={i} className="error-message">
+                            {error} 
+                        </div>
+                    ))}                         
                 </div>
 
                 <div className="col-md-3">
-                    <a className="question-instruction" href={formData.instruction_link || '#'} target="_blank" rel="noopener noreferrer">Instruction</a>
+                    {formData.instruction_link && (
+                        <a className="question-instruction" href={formData.instruction_link || '#'} target="_blank" rel="noopener noreferrer">Instruction</a>
+                    )}
                 </div>
 
                 <div className="col-md-auto">
-                    <button type="button" className="question-note" onClick={handleNotesClick}>Note</button>
-                    {showNotes && (
+                    {notesInSchema && (
+                    <>    
+                        <button type="button" className="question-note" onClick={handleNotesClick}>Note</button>
+                    
+                        {showNotes && (
                         <textarea
                             value={formData.notes || ''}
                             onChange={(event) => onChange({ ...formData, notes: event.target.value })}
                             maxLength={3600}
                         />
+                        )}
+                    </>
                     )}
                 </div>
             </div>

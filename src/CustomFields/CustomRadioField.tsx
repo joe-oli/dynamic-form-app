@@ -24,17 +24,17 @@ const CustomRadioField: React.FC<FieldProps<CustomRadioFieldData>> = (props) => 
             <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
 
             <div className="row mt-2">
-                <div className="col-md-5" style={{ display: 'flex', justifyContent: 'space-between', width: '30px' }}>
+                <div className="col-md-5" style={{ display: 'flex', alignItems: 'center' }}>
                     {/* style above makes RB horizontal */}
                     {valueSchema?.enum?.map((option, index) => (
 
-                        <div key={index}>
+                        <div key={index} style={{marginRight: '10px'}}>
                             <input
                                 type="radio"
                                 id={`${props.idSchema.$id}_${index}`}
                                 checked={formData.value === option}
                                 onChange={() => onChange({ ...formData, value: option })}
-                                style={{ marginRight: '10px' }}
+                                style={{ marginRight: '5px' }}
                             />
                             {/* style on input makes a gap between circle and label */}
                             <label htmlFor={`${props.idSchema.$id}_${index}`}>{option}</label>

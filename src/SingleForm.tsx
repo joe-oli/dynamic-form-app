@@ -11,13 +11,16 @@ import CustomStaticText from './CustomStaticText';
 
 import AjvValidator from '@rjsf/validator-ajv8';
 
+
 /*
 import {RJSFSchema} from '@rjsf/utils'
 import { withTheme } from '@rjsf/core';
 import {Theme as Bootstrap4Theme } from '@rjsf/bootstrap-4'
 import { JSONSchema7 } from 'json-schema';
 */
-import './SingleForm.css'
+
+// REMOVED TEMPORARILTY THIS CSS, as it affects DataEntryBS.tsx; we want the Bootstrap.min.css to apply !
+// import './SingleForm.css' 
 
 /* NB: v5 uses 
   import UiSchema from '@rjsf/core'
