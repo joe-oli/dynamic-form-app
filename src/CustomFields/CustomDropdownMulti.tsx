@@ -15,7 +15,7 @@ const CustomDropdownMulti: React.FC<FieldProps<CustomDropdownMultiData>> = (prop
     }
 
     const formData = props.formData || {};
-    const { onChange } = props;
+    const { onChange, errorSchema, required } = props;
 
     // const valueSchema = props.schema.properties?.value.items as { type: string; enum?: string[] } | undefined;
     /*
@@ -23,17 +23,25 @@ const CustomDropdownMulti: React.FC<FieldProps<CustomDropdownMultiData>> = (prop
     In JSON Schema, a property can be of multiple types, and one of those types is false, which would not have an items property.
     */
     const valueSchema = (props.schema.properties?.value as any)?.items as { type: string; enum?: string[] } | undefined;
+    const valueErrors = errorSchema && errorSchema.value && errorSchema.value.__errors;
+    // Check if 'notes' is in the schema
+    const notesInSchema = props.schema.properties && 'notes' in props.schema.properties;
 
     return (
         <div className="form-item">
-            <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
+            {/* <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} /> */}
+            <label className="form-label">
+                <span dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
+                {required && <span> *</span>}
+            </label>
 
             <div className="row mt-2">
                 <div className="col-md-5">
                     <select
-                        multiple
+                        multiple size={5}
                         value={formData.value || []}
                         onChange={(event) => onChange({ ...formData, value: Array.from(event.target.selectedOptions, option => option.value) })}
+                        style={{ width: '80%', overflowY: 'auto' }} // Adjust the width as needed
                     >
                         {valueSchema?.enum?.map((option, index) => (
                             <option key={index} value={option}>
@@ -41,6 +49,12 @@ const CustomDropdownMulti: React.FC<FieldProps<CustomDropdownMultiData>> = (prop
                             </option>
                         ))}
                     </select>
+
+                    {valueErrors?.map((error, i) => (
+                        <div key={i} className="error-message">
+                            {error} 
+                        </div>
+                    ))}
                 </div>
 
                 <div className="col-md-3">
@@ -48,7 +62,10 @@ const CustomDropdownMulti: React.FC<FieldProps<CustomDropdownMultiData>> = (prop
                 </div>
 
                 <div className="col-md-auto">
+                {notesInSchema && (
+                    <>      
                     <button type="button" className="question-note" onClick={handleNotesClick}>Note</button>
+
                     {showNotes && (
                         <textarea
                             value={formData.notes || ''}
@@ -56,6 +73,8 @@ const CustomDropdownMulti: React.FC<FieldProps<CustomDropdownMultiData>> = (prop
                             maxLength={3600}
                         />
                     )}
+                    </>
+                )}    
                 </div>
             </div>
         </div>

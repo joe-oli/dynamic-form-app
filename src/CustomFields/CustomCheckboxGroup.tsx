@@ -17,18 +17,31 @@ const CustomCheckboxGroup: React.FC<FieldProps<CustomCheckboxGroupData>> = (prop
     const formData = props.formData || {};
     const { onChange } = props;
     const { errorSchema, required } = props;  //err handling
-    console.error('errorSchema:', errorSchema)
-    console.warn('required:', required)
+    // console.error('errorSchema:', errorSchema)
+    // console.warn('required:', required)
 
     //const valueSchema = props.schema.properties?.value.items as { type: string; enum?: string[] } | undefined;
     //see DropdownMulti, same issue.
     const valueSchema = (props.schema.properties?.value as any)?.items as { type: string; enum?: string[] } | undefined;
+    /*
+      valueSchema = {
+            "type": "string",
+            "enum": [
+                "apples",
+                "oranges",
+                "bananas"
+            ]
+        }
+    */
+
     // Extract any errors for the 'value' property
     const valueErrors = errorSchema && errorSchema.value && errorSchema.value.__errors;
     // Check if 'notes' is in the schema
     const notesInSchema = props.schema.properties && 'notes' in props.schema.properties;
+   
+    // console.warn('valueSchema:',valueSchema);
+    // console.error('valueErrors:', valueErrors)
 
-    console.error('valueErrors:', valueErrors)
     return (
         <div className="form-item">
             {/* <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} /> */}

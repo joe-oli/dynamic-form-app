@@ -35,10 +35,9 @@ import { FieldProps } from '@rjsf/utils';
 
 interface CustomDropdownSingleData {
     value?: string | null; // can be a string, undefined, or null.
-    notes?: string | null;
+    notes?: string;
     instruction_link?: string;
 }
-
 
 
 const CustomDropdownSingle: React.FC<FieldProps<CustomDropdownSingleData>> = (props) => {
@@ -73,7 +72,7 @@ const CustomDropdownSingle: React.FC<FieldProps<CustomDropdownSingleData>> = (pr
                     <select
                         value={formData.value || ''}
                         // onChange={(event) => onChange({ ...formData, value: event.target.value })}
-                        onChange={(event) => onChange({ value: event.target.value || null, notes: formData.notes || null  })}
+                        onChange={(event) => onChange({ value: event.target.value || '', notes: formData.notes })}
                     >
                         <option value="">--Please select--</option>
                         {valueSchema?.enum?.map((option, index) => (
@@ -108,8 +107,8 @@ const CustomDropdownSingle: React.FC<FieldProps<CustomDropdownSingleData>> = (pr
                         {showNotes && (
                             <textarea
                                 value={formData.notes || ''}
-                                // onChange={(event) => onChange({ ...formData, notes: event.target.value })}
-                                onChange={(event) => onChange({ value: formData.value || null, notes: event.target.value || null })}
+                                onChange={(event) => onChange({ ...formData, notes: event.target.value })}
+                                // onChange={(event) => onChange({ value: formData.value || '', notes: event.target.value || '' })}
                                 maxLength={3600}
                             />
                         )}

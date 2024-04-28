@@ -1,15 +1,20 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
 
 const schema3: RJSFSchema =  {
-  "title": "Assessment Checklist",
+  "title": "My nested fields",
   "type": "object",
   "required": [
-    "sapvendornumber",
-    "EquifaxSeacrh",
-    "favoriteFruit"
+    "IAgree",
+    "yesNoQuestion",
+    "myDateField",
+    "favoriteSports",
+    "favoriteFruit",
+    "multipleselectdropdown",
+    "sapVendorNumber",
+    "personFullName"
   ],
   "properties": {
-    "datefeild": {
+    "myDateField": {
       "title": "Q1. sample question label",
       "type": "object",
       "properties": {
@@ -21,22 +26,22 @@ const schema3: RJSFSchema =  {
           "type": "string"
         },
         "instruction_link": {
-          "default": "https://www.datefeild.com"
+          "default": "http://www.timeanddate.com"
         }
       },
       "required": [
         "value"
       ]
     },
-    "assessedtier": {
-      "title": "Q2. sample question label",
+    "personFullName": {
+      "title": "Full name",
       "type": "object",
       "properties": {
         "value": {
           "type": "string",
-          "minLength": 5,
-          "maxLength": 10,
-          "pattern": "^[A-Za-z'-]*$"
+          "minLength": 2,
+          "maxLength": 20,
+          "pattern": "^[A-Za-z]{1}[A-Za-z '-]*[A-Za-z]{1}$" //e.g. Mary-Rose O'Conner; replace asterisk(*) with plus(+) if at least one char in the middle is required
         },
         "notes": {
           "type": "string"
@@ -49,8 +54,8 @@ const schema3: RJSFSchema =  {
         "value"
       ]
     },
-    "sapvendornumber": {
-      "title": "Q3. sample question label",
+    "sapVendorNumber": {
+      "title": "Q3. SAP Vendor No.",
       "type": "object",
       "properties": {
         "value": {
@@ -69,8 +74,8 @@ const schema3: RJSFSchema =  {
         "value"
       ]
     },
-    "EquifaxSeacrh": {
-      "title": "Q4. sample question label",
+    "yesNoQuestion": {
+      "title": "Q4. Yes No Radio button",
       "type": "object",
       "properties": {
         "value": {
@@ -91,8 +96,8 @@ const schema3: RJSFSchema =  {
         "value"
       ]
     },
-    "attachedrequireddocuments": {
-      "title": "Q5. sample question label",
+    "IAgree": {
+      "title": "I Agree to the conditions",
       "type": "object",
       "properties": {
         "value": {
@@ -134,16 +139,17 @@ const schema3: RJSFSchema =  {
       ]
     },
     "multipleselectdropdown": {
-      "title": "Q7. sample question label",     
+      "title": "Q7. Dropdown Multi-select",     
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
+          "minItems" : 1, //for Array, required means empty-array [] is acceptable
           "items": {
             "type": "string",
             "enum": [
-              "option1",
-              "option2",
+              "option 1",
+              "option 2",
             ]
           },
           "uniqueItems": true
@@ -159,12 +165,28 @@ const schema3: RJSFSchema =  {
         "value"
       ]
     },
+    "favoriteSports": {
+      "title": "Favorite Sports",
+      "type": "array",
+      "minItems" : 1, //for Array, required means empty-array [] is acceptable
+      "items": {
+        "type": "string",
+        "enum": [
+          "soccer",
+          "hockey",
+          "baseball",
+          "basketball"
+        ]
+      },
+      "uniqueItems": true
+    },
     "favoriteFruit": {
       "title": "Select fave fruit",
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
+          "minItems" : 1, //for Array, required means empty-array [] is acceptable
           "items": {
             "type": "string",
             "enum": [
@@ -179,7 +201,7 @@ const schema3: RJSFSchema =  {
           "type": "string"
         },
         "instruction_link": {
-          "default": "https://www.multipledropdownlist.com"
+          "default": "https://www.example.com"
         }
       },
       "required": [
@@ -195,19 +217,19 @@ const schema3: RJSFSchema =  {
 
 
 const uiSchema3: UiSchema = {
-    "datefeild": {
+    "myDateField": {
       "ui:field": "CustomDatePicker"
     },
-    "assessedtier": {
+    "personFullName": {
       "ui:field": "CustomTextField"
     },
-    "sapvendornumber": {
+    "sapVendorNumber": {
       "ui:field": "CustomNumberField"
     },
-    "EquifaxSeacrh": {
+    "yesNoQuestion": {
       "ui:field": "CustomRadioField"
     },
-    "attachedrequireddocuments": {
+    "IAgree": {
       "ui:field": "CustomCheckboxSingle"
     },
     "industrySingleDropdown": {
@@ -218,6 +240,9 @@ const uiSchema3: UiSchema = {
     },
     "favoriteFruit": {
       "ui:field": "CustomCheckboxGroup"
+    },
+    "favoriteSports": {
+      "ui:widget": "checkboxes"
     },    
     "staticquestion": {
       "ui:widget": "CustomStaticText",

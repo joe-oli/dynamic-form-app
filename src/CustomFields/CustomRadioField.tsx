@@ -15,31 +15,48 @@ const CustomRadioField: React.FC<FieldProps<CustomRadioFieldData>> = (props) => 
     }
 
     const formData = props.formData || {};
-    const { onChange } = props;
+    const { onChange, errorSchema,required } = props;
 
     const valueSchema = props.schema.properties?.value as { type: string; enum?: string[] } | undefined;
+    // Extract any errors for the 'value' property
+    const valueErrors = errorSchema && errorSchema.value && errorSchema.value.__errors;
+    // Check if 'notes' is in the schema
+    const notesInSchema = props.schema.properties && 'notes' in props.schema.properties;
 
     return (
         <div className="form-item">
-            <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
+            {/* <label className="form-label" dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} /> */}
+            <label className="form-label">
+                <span dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
+                {required && <span> *</span>}
+            </label>
 
             <div className="row mt-2">
-                <div className="col-md-5" style={{ display: 'flex', alignItems: 'center' }}>
-                    {/* style above makes RB horizontal */}
-                    {valueSchema?.enum?.map((option, index) => (
+                <div className="col-md-5" style={{ display: 'flex', flexDirection: 'column' }}>
 
-                        <div key={index} style={{marginRight: '10px'}}>
-                            <input
-                                type="radio"
-                                id={`${props.idSchema.$id}_${index}`}
-                                checked={formData.value === option}
-                                onChange={() => onChange({ ...formData, value: option })}
-                                style={{ marginRight: '5px' }}
-                            />
-                            {/* style on input makes a gap between circle and label */}
-                            <label htmlFor={`${props.idSchema.$id}_${index}`}>{option}</label>
+                    <div style={{display:'flex', alignItems: 'center'}}>
+                        {/* style above makes RB horizontal */}
+                        {valueSchema?.enum?.map((option, index) => (
+
+                            <div key={index} style={{marginRight: '10px'}}>
+                                <input
+                                    type="radio"
+                                    id={`${props.idSchema.$id}_${index}`}
+                                    checked={formData.value === option}
+                                    onChange={() => onChange({ ...formData, value: option })}
+                                    style={{ marginRight: '5px' }}
+                                />
+                                {/* style on input makes a gap between circle and label */}
+                                <label htmlFor={`${props.idSchema.$id}_${index}`}>{option}</label>
+                            </div>
+
+                        ))}
+                    </div>
+
+                    {valueErrors?.map((error, i) => (
+                        <div key={i} className="error-message">
+                            {error} 
                         </div>
-
                     ))}
                 </div>
 
@@ -48,7 +65,10 @@ const CustomRadioField: React.FC<FieldProps<CustomRadioFieldData>> = (props) => 
                 </div>
 
                 <div className="col-md-auto">
+                {notesInSchema && (
+                    <>        
                     <button type="button" className="question-note" onClick={handleNotesClick}>Note</button>
+                    
                     {showNotes && (
                         <textarea
                             value={formData.notes || ''}
@@ -56,6 +76,8 @@ const CustomRadioField: React.FC<FieldProps<CustomRadioFieldData>> = (props) => 
                             maxLength={3600}
                         />
                     )}
+                    </>
+                )}    
                 </div>
             </div>
         </div>
