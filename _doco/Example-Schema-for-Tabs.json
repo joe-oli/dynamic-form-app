@@ -1,0 +1,71 @@
+[
+    {},
+    {},
+    
+]
+{
+  "applicantEligibility": {
+    "isApplicantHighRisk": { "response": null, "note": null },
+    "additionalAssessmentReviewed": { "response": true, "note": null },
+    "riskIdentifiedDuringAssessment": { "response": null, "note": null },
+    "isApplicantEligibleWithTurnover": { "response": "Agree", "note": null },
+    "isHighRiskIndustry": { "response": "Yes", "note": null },
+    "notConductingSameBusiness": { "response": "Agree", "note": null },
+    "noOutstandingConvictions": { "response": "Agree", "note": null },
+    "applicantInsolvent": { "response": "Agree", "note": null },
+    "acceptedatocompliancedeclaration": { "response": "Agree", "note": null },
+    "satisfyRequirementForRepBody": { "response": null, "note": null },
+    "hasDisagreeFlag": { "response": false }
+  },
+  "productEligibility": {
+    "productsDescription": { "response": "test", "note": null },
+    "industrySelected": { "response": null, "note": null },
+    "applicantHasEligibleProduct": { "response": "Agree", "note": null },
+    "applicantSellingProductToForeigners": {
+      "response": "Agree",
+      "note": null
+    },
+    "marketEligibleProducts": { "response": "Agree", "note": null },
+    "hasConnectionToEligibleProduct": { "response": "Agree", "note": null },
+    "planToMarketEligibleProducts": { "response": null, "note": null },
+    "exportReady": { "response": null, "note": null },
+    "hasDisagreeFlag": { "response": false }
+  },
+  "tierEligibility": {
+    "applicantEverExported": { "response": null, "note": null },
+    "receivedSingleGrantOnly": { "response": null, "note": null },
+    "marketingInForeignCountry": { "response": null, "note": null },
+    "applicantExporting": { "response": "Yes", "note": null },
+    "expandingExportActivity": { "response": "Yes", "note": null },
+    "baselinePromotionalActivity": { "response": "fadsf", "note": null },
+    "makingStrategicShift": { "response": null, "note": null },
+    "baselineMarketingActivities": { "response": null, "note": null },
+    "eligibleForOtherTier": { "response": null, "note": null },
+    "tierApplicantEligibleFor": { "response": null, "note": null },
+    "applicantEverExportedManual": { "response": null, "note": null },
+    "receivedSingleGrantOnlyManual": { "response": null, "note": null },
+    "marketingInForeignCountryManual": { "response": null, "note": null },
+    "applicantExportingManual": { "response": null, "note": null },
+    "expandingExportActivityManual": { "response": null, "note": null },
+    "baselinePromotionalActivityManual": { "response": null, "note": null },
+    "makingStrategicShiftManual": { "response": null, "note": null },
+    "baselineMarketingActivitiesManual": { "response": null, "note": null },
+    "grantForExpenditures": { "response": null, "note": null },
+    "applicantSeekingGrant": {},
+    "promotionalActivities": { "response": null, "note": null },
+    "trainingActivities": { "response": null, "note": null },
+    "noPromotionalOrTrainingActivities": { "response": null, "note": null },
+    "planToMarket": { "response": null, "note": null },
+    "exportReadyRepresentative": { "response": null, "note": null },
+    "undertakenIllegalAvtivities": { "response": "No", "note": null },
+    "haveEligibleExpenses": { "response": "Yes", "note": null }
+  },
+  "finalisation": {
+    "commentsRegardingApplicant": { "response": "Yes", "note": null },
+    "commentsRegardingApplicantSummary": { "response": "test", "note": null },
+    "applicantRiskRating": { "response": null, "note": null },
+    "riskRatingSummary": { "response": null, "note": null },
+    "noConflictOfInterest": { "response": true, "note": null },
+    "rejectionFlags": { "response": [] }
+  }
+}

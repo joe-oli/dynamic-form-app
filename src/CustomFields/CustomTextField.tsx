@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { FieldProps } from '@rjsf/utils';
 
-interface AssessedTierFormData {
+interface CustomTextFieldData {
     value?: string;
     notes?: string;
     instruction_link?: string;
 }
 
-const AssessedTierField: React.FC<FieldProps<AssessedTierFormData>> = (props) => {
+const CustomTextField: React.FC<FieldProps<CustomTextFieldData>> = (props) => {
     const [showNotes, setShowNotes] = useState(false);
 
     const handleNotesClick = () => {
@@ -29,7 +29,7 @@ const AssessedTierField: React.FC<FieldProps<AssessedTierFormData>> = (props) =>
             <label className="form-label">
                 <span dangerouslySetInnerHTML={{ __html: props.schema.title || '' }} />
                 {required && <span> *</span>}
-            </label>            
+            </label>
 
             {/* primary input, instruction, note on its own line or row */}
             <div className="row mt-2">
@@ -78,5 +78,5 @@ const AssessedTierField: React.FC<FieldProps<AssessedTierFormData>> = (props) =>
     );
 }
 
-export default AssessedTierField;
+export default CustomTextField;
 

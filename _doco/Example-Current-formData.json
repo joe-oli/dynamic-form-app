@@ -1,0 +1,49 @@
+{
+    "datefeild": {
+        "instruction_link": "https://www.datefeild.com"
+    },
+    "assessedtier": {
+        "instruction_link": "https://www.tetaasjhdgahsgdsad.com"
+    },
+    "sapvendornumber": {
+        "instruction_link": "https://www.google.com"
+    },
+    "EquifaxSeacrh": {
+        "instruction_link": "https://www.asic.com"
+    },
+    "attachedrequireddocuments": {
+        "value": true,
+        "notes": "Hey this is some note."
+    },
+    "selectindustryfromdropdownlist": {
+        "value": "industry1"
+    },
+    "multipleselectdropdown": {
+        "value": []
+    },
+    "staticquestion": "<div data-wrapper=\"true\" dir=\"ltr\" style=\"font-size:9pt;font-family:'Segoe UI','Helvetica Neue',sans-serif;\"><div><span style=\"font-size:12pt\">this is static content</span></div></div>"
+}
+
+
+//EXISTING:
+{
+    "agentDetailsAreConsistent": { "response": null, "note": null },
+    "websiteSnapshotUploaded": { "response": "Yes", "note": null },
+    "uploadedEquifaxSearch": { "response": "Yes", "note": null },
+    "appropriateDocumentsUploaded": { "response": true, "note": null },
+    "vendorsSapNumber": { "response": null, "note": null },
+    "accountDetailsProvided": { "response": "Yes", "note": null },
+    "consistentgrantHistory": { "response": true, "note": null },
+    "sameBusinessReceivedPrevGrant": { "response": "Yes", "note": null },
+    "sameBusinessReceivedPrevGrantSummary": {
+      "response": "ysdgfs",
+      "note": null
+    },
+    "correctGrantDetails": { "response": true, "note": null },
+    "CmsNotesAreConsistentWithCrm": { "response": true, "note": null },
+    "CmsNotesAreConsistentWithCrmSummary": { "response": "yrdy", "note": null },
+    "extraCommentsToConsider": { "response": null, "note": null },
+    "grantHistory": []
+  }
+
+  

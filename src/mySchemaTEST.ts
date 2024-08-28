@@ -11,7 +11,8 @@ const schema3: RJSFSchema =  {
     "favoriteFruit",
     "multipleselectdropdown",
     "sapVendorNumber",
-    "personFullName"
+    "personFullName",
+    "multiLineDescription"
   ],
   "properties": {
     "myDateField": {
@@ -47,13 +48,33 @@ const schema3: RJSFSchema =  {
           "type": "string"
         },
         "instruction_link": {
-          "default": "https://www.tetaasjhdgahsgdsad.com"
+          "default": "https://www.smh.com.au"
         }
       },
       "required": [
         "value"
       ]
     },
+    "multiLineDescription": {
+      "title": "Some random long description",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3600,
+        },
+        "notes": {
+          "type": "string"
+        },
+        "instruction_link": {
+          "default": "https://www.example.com"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },    
     "sapVendorNumber": {
       "title": "Q3. SAP Vendor No.",
       "type": "object",
@@ -223,6 +244,9 @@ const uiSchema3: UiSchema = {
     "personFullName": {
       "ui:field": "CustomTextField"
     },
+    "multiLineDescription" : {
+      "ui:field": "CustomTextMulti"
+    },   
     "sapVendorNumber": {
       "ui:field": "CustomNumberField"
     },
